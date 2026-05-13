@@ -8,6 +8,7 @@ namespace Papa.Planilla.Domain.Entities
 {
     public class Planilla : EntidadBase
     {
+        //Atributos
         public int Anio { get; private set; }
         public int Mes { get; private set; }
         public Guid TrabajadorId { get; private set; }
@@ -20,6 +21,7 @@ namespace Papa.Planilla.Domain.Entities
         public Importe SueldoNeto => TotalIngresos - TotalDescuentos;
         public PlanillaEstado EstadoPlanilla { get; set; }
 
+        //Constructores
         private Planilla() { }
 
         private Planilla(int anio, int mes, Trabajador trabajador, Contrato contrato, Importe sueldoBasico, Importe totalIngresos, Importe totalDescuentos)
@@ -45,11 +47,13 @@ namespace Papa.Planilla.Domain.Entities
             EstadoPlanilla = PlanillaEstado.Pendiente;
         }
 
+        //Patrón Factory
         public static Planilla Crear(int anio, int mes, Trabajador trabajador, Contrato contrato, Importe sueldoBasico, Importe totalIngresos, Importe totalDescuentos)
         {
             return new Planilla(anio, mes, trabajador, contrato, sueldoBasico, totalIngresos, totalDescuentos);
         }
 
+        //Métodos de negocio
         public void Procesado()
         {
             if (EstadoPlanilla == PlanillaEstado.Procesado)

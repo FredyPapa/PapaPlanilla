@@ -8,6 +8,7 @@ namespace Papa.Planilla.Domain.Entities
 {
     public class Contrato : EntidadBase
     {
+        //Atributos
         public Guid TrabajadorId { get; private set; }
         public Trabajador Trabajador { get; private set; }
         public Guid UnidadOrganicaId { get; set; }
@@ -19,6 +20,11 @@ namespace Papa.Planilla.Domain.Entities
         public Importe Sueldo { get; private set; }
         public ContratoEstado EstadoContrato { get; set; }
 
+        //Propiedades de Navegación
+        private readonly List<Planilla> _planillas = new();
+        public IReadOnlyCollection<Planilla> Planillas => _planillas.AsReadOnly();
+
+        //Constructores
         private Contrato() { }
 
         private Contrato(Trabajador trabajador, UnidadOrganica unidadOrganica, Cargo cargo, DateTime fechaInicio, DateTime? fechaFin, Importe sueldo)
@@ -36,6 +42,7 @@ namespace Papa.Planilla.Domain.Entities
             EstadoContrato = ContratoEstado.Vigente;
         }
 
+        //Patrón Factory
         public static Contrato Crear(Trabajador trabajador, UnidadOrganica unidadOrganica, Cargo cargo, DateTime fechaInicio, DateTime? fechaFin, Importe sueldo)
         {
             return new Contrato(trabajador, unidadOrganica, cargo, fechaInicio, fechaFin, sueldo);
