@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/deploy/" />
+  <Folder Name="/src/" />
+  <Folder Name="/src/Core/">
+    <Project Path="Papa.Planilla.Application/Papa.Planilla.Application.csproj" />
+    <Project Path="Papa.Planilla.Domain/Papa.Planilla.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infraestructure/">
+    <Project Path="Papa.Planilla.Infraestructure/Papa.Planilla.Infraestructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Presentation/">
+    <Project Path="Papa.Planilla.API/Papa.Planilla.API.csproj" />
+  </Folder>
+</Solution>

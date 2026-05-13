@@ -1,0 +1,44 @@
+﻿using Papa.Planilla.Domain.Enums;
+using Papa.Planilla.Domain.ValueObjects;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Papa.Planilla.Domain.Entities
+{
+    public class Contrato : EntidadBase
+    {
+        public Guid TrabajadorId { get; private set; }
+        public Trabajador Trabajador { get; private set; }
+        public Guid UnidadOrganicaId { get; set; }
+        public UnidadOrganica unidadOrganica { get; set; }
+        public Guid CargoId { get; private set; }
+        public Cargo cargo { get; private set; }
+        public DateTime FechaInicio { get; private set; }
+        public DateTime? FechaFin { get; private set; }
+        public Importe Sueldo { get; private set; }
+        public ContratoEstado EstadoContrato { get; set; }
+
+        private Contrato() { }
+
+        private Contrato(Trabajador trabajador, UnidadOrganica unidadOrganica, Cargo cargo, DateTime fechaInicio, DateTime? fechaFin, Importe sueldo)
+        {
+            if (fechaInicio == default)
+                throw new ArgumentException("La fecha de inicio no puede estar vacía.", nameof(fechaInicio));
+            if (sueldo == null)
+                throw new ArgumentException("El sueldo no puede estar vacío.", nameof(sueldo));
+            TrabajadorId = trabajador.Id;
+            UnidadOrganicaId = unidadOrganica.Id;
+            CargoId = cargo.Id;
+            FechaInicio = fechaInicio;
+            FechaFin = fechaFin;
+            Sueldo = sueldo;
+            EstadoContrato = ContratoEstado.Vigente;
+        }
+
+        public static Contrato Crear(Trabajador trabajador, UnidadOrganica unidadOrganica, Cargo cargo, DateTime fechaInicio, DateTime? fechaFin, Importe sueldo)
+        {
+            return new Contrato(trabajador, unidadOrganica, cargo, fechaInicio, fechaFin, sueldo);
+        }
+    }
+}
