@@ -1,5 +1,7 @@
 <Solution>
-  <Folder Name="/deploy/" />
+  <Folder Name="/deploy/">
+    <File Path="docker-compose.yml" />
+  </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/Core/">
     <Project Path="Papa.Planilla.Application/Papa.Planilla.Application.csproj" />

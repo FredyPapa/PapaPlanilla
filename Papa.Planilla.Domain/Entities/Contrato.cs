@@ -10,14 +10,14 @@ namespace Papa.Planilla.Domain.Entities
     {
         //Atributos
         public Guid TrabajadorId { get; private set; }
-        public Trabajador Trabajador { get; private set; }
+        public Trabajador Trabajador { get; private set; } = null!;
         public Guid UnidadOrganicaId { get; set; }
-        public UnidadOrganica unidadOrganica { get; set; }
+        public UnidadOrganica UnidadOrganica { get; set; } = null!;
         public Guid CargoId { get; private set; }
-        public Cargo cargo { get; private set; }
+        public Cargo Cargo { get; private set; } = null!;
         public DateTime FechaInicio { get; private set; }
         public DateTime? FechaFin { get; private set; }
-        public Importe Sueldo { get; private set; }
+        public Importe Sueldo { get; private set; } = null!;
         public ContratoEstado EstadoContrato { get; set; }
 
         //Propiedades de Navegación

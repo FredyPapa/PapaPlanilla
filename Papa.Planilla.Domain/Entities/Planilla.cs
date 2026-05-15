@@ -10,26 +10,26 @@ namespace Papa.Planilla.Domain.Entities
     {
         //Atributos
         public int Anio { get; private set; }
-        public int Mes { get; private set; }
+        public Meses Mes { get; private set; }
         public Guid TrabajadorId { get; private set; }
-        public Trabajador Trabajador { get; private set; }
+        public Trabajador Trabajador { get; private set; } = null!;
         public Guid ContratoId { get; private set; }
-        public Contrato Contrato { get; private set; }
-        public Importe SueldoBasico { get; private set; }
-        public Importe TotalIngresos { get; private set; }
-        public Importe TotalDescuentos { get; private set; }
+        public Contrato Contrato { get; private set; } = null!;
+        public Importe SueldoBasico { get; private set; } = null!;
+        public Importe TotalIngresos { get; private set; } = null!;
+        public Importe TotalDescuentos { get; private set; } = null!;
         public Importe SueldoNeto => TotalIngresos - TotalDescuentos;
         public PlanillaEstado EstadoPlanilla { get; set; }
 
         //Constructores
         private Planilla() { }
 
-        private Planilla(int anio, int mes, Trabajador trabajador, Contrato contrato, Importe sueldoBasico, Importe totalIngresos, Importe totalDescuentos)
+        private Planilla(int anio, Meses mes, Trabajador trabajador, Contrato contrato, Importe sueldoBasico, Importe totalIngresos, Importe totalDescuentos)
         {
             if (anio <= 0)
                 throw new ArgumentException("El año debe ser un número positivo.", nameof(anio));
-            if (mes < 1 || mes > 12)
-                throw new ArgumentException("El mes debe estar entre 1 y 12.", nameof(mes));
+            if (!Enum.IsDefined(typeof(Meses), mes))
+                throw new ArgumentException("El valor ingresado no es válido", nameof(mes));
             if (sueldoBasico == null)
                 throw new ArgumentException("El sueldo básico no puede estar vacío.", nameof(sueldoBasico));
             if (totalIngresos == null)
@@ -48,7 +48,7 @@ namespace Papa.Planilla.Domain.Entities
         }
 
         //Patrón Factory
-        public static Planilla Crear(int anio, int mes, Trabajador trabajador, Contrato contrato, Importe sueldoBasico, Importe totalIngresos, Importe totalDescuentos)
+        public static Planilla Crear(int anio, Meses mes, Trabajador trabajador, Contrato contrato, Importe sueldoBasico, Importe totalIngresos, Importe totalDescuentos)
         {
             return new Planilla(anio, mes, trabajador, contrato, sueldoBasico, totalIngresos, totalDescuentos);
         }

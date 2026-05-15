@@ -6,7 +6,7 @@ namespace Papa.Planilla.Domain.ValueObjects
 {
     public class Importe
     {
-        public string? Moneda { get; init; }
+        public string Moneda { get; init; } = null!;
         public decimal Monto { get; init; }
 
         private Importe() { }

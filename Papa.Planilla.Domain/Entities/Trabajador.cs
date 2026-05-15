@@ -9,16 +9,17 @@ namespace Papa.Planilla.Domain.Entities
     public class Trabajador : EntidadBase
     {
         //Atributos
-        public DocumentoIdentidad DocumentoIdentidad { get; private set; }
-        public string ApellidoPaterno { get; private set; }
-        public string ApellidoMaterno { get; private set; }
-        public string Nombres { get; private set; }
+        public DocumentoIdentidad DocumentoIdentidad { get; private set; } = null!;
+        public string ApellidoPaterno { get; private set; } = null!;
+        public string ApellidoMaterno { get; private set; } = null!;
+        public string Nombres { get; private set; } = null!;
         public string? Correo { get; private set; }
-        public NumeroCelular NumeroCelular { get; set; }
+        public NumeroCelular NumeroCelular { get; set; } = null!;
 
         //Propiedades de Navegación
         private readonly List<Contrato> _contratos = new();
         public IReadOnlyCollection<Contrato> Contratos => _contratos.AsReadOnly();
+
         private readonly List<Planilla> _planillas = new();
         public IReadOnlyCollection<Planilla> Planillas => _planillas.AsReadOnly();
 

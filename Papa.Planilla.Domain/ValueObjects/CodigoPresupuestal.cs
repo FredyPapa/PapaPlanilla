@@ -6,8 +6,8 @@ namespace Papa.Planilla.Domain.ValueObjects
 {
     public class CodigoPresupuestal
     {
-        public string Codigo { get; init; }
-        public string Descripcion { get; init; }
+        public string Codigo { get; init; } = null!;
+        public string Descripcion { get; init; } = null!;
 
         private CodigoPresupuestal() { }
 
