@@ -6,4 +6,30 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Papa.Planilla.Domain\Papa.Planilla.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Contants\" />
+    <Folder Include="Common\DTO\" />
+    <Folder Include="Common\Abstractions\" />
+    <Folder Include="Features\Cargo\DTO\" />
+    <Folder Include="Features\Cargo\Ports\" />
+    <Folder Include="Features\Cargo\UseCases\" />
+    <Folder Include="Features\Contrato\DTO\" />
+    <Folder Include="Features\Contrato\Ports\" />
+    <Folder Include="Features\Contrato\UseCases\" />
+    <Folder Include="Features\Planilla\DTO\" />
+    <Folder Include="Features\Planilla\Ports\" />
+    <Folder Include="Features\Planilla\UseCases\" />
+    <Folder Include="Features\UnidadOrganica\DTO\" />
+    <Folder Include="Features\UnidadOrganica\Ports\" />
+    <Folder Include="Features\UnidadOrganica\UseCases\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.7" />
+  </ItemGroup>
+
 </Project>

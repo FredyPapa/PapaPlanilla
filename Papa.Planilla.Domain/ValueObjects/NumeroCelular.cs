@@ -6,8 +6,8 @@ namespace Papa.Planilla.Domain.ValueObjects
 {
     public class NumeroCelular
     {
-        public string? CodigoPais { get; init; }
-        public string? Numero { get; init; }
+        public string CodigoPais { get; init; } = null!;
+        public string Numero { get; init; } = null!;
 
         private NumeroCelular() { }
 

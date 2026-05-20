@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Papa.Planilla.Application\Papa.Planilla.Application.csproj" />
     <ProjectReference Include="..\Papa.Planilla.Infraestructure\Papa.Planilla.Infraestructure.csproj" />
   </ItemGroup>
 

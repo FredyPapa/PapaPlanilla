@@ -1,4 +1,5 @@
 using Papa.Planilla.Infraestructure;
+using Papa.Planilla.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,10 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-//Conexión a la base de datos
-builder.Services.AddInfraestructure(builder.Configuration);
+//Inyección de dependencia (y Conexión a la base de datos)
+builder.Services
+    .AddApplication()
+    .AddInfraestructure(builder.Configuration);
 
 var app = builder.Build();
 
