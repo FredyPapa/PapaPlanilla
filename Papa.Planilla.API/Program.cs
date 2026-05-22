@@ -1,5 +1,7 @@
 using Papa.Planilla.Infraestructure;
 using Papa.Planilla.Application;
+using Microsoft.AspNetCore.Diagnostics;
+using Papa.Planilla.API.Middelwares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,9 @@ builder.Services
     .AddInfraestructure(builder.Configuration);
 
 var app = builder.Build();
+
+//Middelwares
+app.UseMiddleware<ExceptionHandlingMiddelware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

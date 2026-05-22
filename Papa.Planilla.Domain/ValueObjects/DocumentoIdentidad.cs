@@ -6,8 +6,8 @@ namespace Papa.Planilla.Domain.ValueObjects
 {
     public class DocumentoIdentidad
     {
-        public string? Tipo {  get; init; }
-        public string? Numero { get; init; }
+        public string Tipo { get; init; } = null!;
+        public string Numero { get; init; } = null!;
 
         private DocumentoIdentidad() { }
 

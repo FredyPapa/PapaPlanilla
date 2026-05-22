@@ -12,6 +12,8 @@ namespace Papa.Planilla.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddScoped<ICreateTrabajadorUseCase, CreateTrabajadorUseCase>();
+            services.AddScoped<IListTrabajadorUseCase, ListTrabajadorUseCase>();
+            services.AddScoped<TrabajadorUseCases>();
             //
             return services;
         }

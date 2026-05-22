@@ -2,26 +2,36 @@
 using Microsoft.AspNetCore.Mvc;
 using Papa.Planilla.Application.Features.Trabajador.DTO;
 using Papa.Planilla.Application.Features.Trabajador.Ports;
+using Papa.Planilla.Application.Features.Trabajador.UseCases;
 using System.Net;
 
 namespace Papa.Planilla.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TrabajadoresController : ControllerBase
+    public class TrabajadoresController : BaseApiController
     {
-        private readonly ICreateTrabajadorUseCase _createTrabajadorUseCase;
+        private readonly TrabajadorUseCases _useCases;
 
-        public TrabajadoresController(ICreateTrabajadorUseCase createTrabajadorUseCase)
+        public TrabajadoresController(TrabajadorUseCases useCases)
         {
-            _createTrabajadorUseCase = createTrabajadorUseCase;
+            _useCases = useCases;
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateTrabajadorRequest request)
         {
-            var result = await _createTrabajadorUseCase.ExecuteAsync(request);
-            return StatusCode((int)HttpStatusCode.Created, result);
+            var result = await _useCases.create.ExecuteAsync(request);
+            //return StatusCode((int)HttpStatusCode.Created, result);
+            return HandlerResult(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] ListTrabajadorRequest request)
+        {
+            var result = await _useCases.list.ExecuteAsync(request);
+            //return Ok(result);
+            return HandlerResult(result);
         }
     }
 }
