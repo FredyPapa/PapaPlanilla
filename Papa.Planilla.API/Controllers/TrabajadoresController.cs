@@ -22,7 +22,6 @@ namespace Papa.Planilla.API.Controllers
         public async Task<IActionResult> Post([FromBody] CreateTrabajadorRequest request)
         {
             var result = await _useCases.create.ExecuteAsync(request);
-            //return StatusCode((int)HttpStatusCode.Created, result);
             return HandlerResult(result);
         }
 
@@ -30,7 +29,6 @@ namespace Papa.Planilla.API.Controllers
         public async Task<IActionResult> Get([FromQuery] ListTrabajadorRequest request)
         {
             var result = await _useCases.list.ExecuteAsync(request);
-            //return Ok(result);
             return HandlerResult(result);
         }
     }

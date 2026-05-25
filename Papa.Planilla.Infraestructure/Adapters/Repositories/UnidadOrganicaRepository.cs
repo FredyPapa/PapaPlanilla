@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Papa.Planilla.Infraestructure.Adapters.Repositories
 {
-    public class UnidadOrganicaRespository(PlanillaDbContext context) : BaseRepository<UnidadOrganica>(context), Domain.Ports.Repositories.IUnidadOrganicaRepository
+    public class UnidadOrganicaRepository(PlanillaDbContext context) : BaseRepository<UnidadOrganica>(context), Domain.Ports.Repositories.IUnidadOrganicaRepository
     {
     }
 }

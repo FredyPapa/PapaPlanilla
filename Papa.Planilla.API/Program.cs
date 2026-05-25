@@ -3,6 +3,9 @@ using Papa.Planilla.Application;
 using Microsoft.AspNetCore.Diagnostics;
 using Papa.Planilla.API.Middelwares;
 
+// Activa el comportamiento heredado para manejar fechas sin especificar como UTC
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

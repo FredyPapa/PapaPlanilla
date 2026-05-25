@@ -22,6 +22,9 @@ namespace Papa.Planilla.Infraestructure
 
             //Inyección de dependencia de Repositorios
             services.AddScoped<ITrabajadorRepository, TrabajadorRepository>();
+            services.AddScoped<ICargoRepository, CargoRepository>();
+            services.AddScoped<IUnidadOrganicaRepository, UnidadOrganicaRepository>();
+            services.AddScoped<IContratoRepository, ContratoRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
