@@ -14,9 +14,6 @@
     <Folder Include="Common\Contants\" />
     <Folder Include="Common\Abstractions\" />
     <Folder Include="Features\Contrato\DTO\" />
-    <Folder Include="Features\Planilla\DTO\" />
-    <Folder Include="Features\Planilla\Ports\" />
-    <Folder Include="Features\Planilla\UseCases\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,6 +3,8 @@ using Papa.Planilla.Application.Features.Cargo.Ports;
 using Papa.Planilla.Application.Features.Cargo.UseCases;
 using Papa.Planilla.Application.Features.Contrato.Ports;
 using Papa.Planilla.Application.Features.Contrato.UseCases;
+using Papa.Planilla.Application.Features.Planilla.Ports;
+using Papa.Planilla.Application.Features.Planilla.UseCases;
 using Papa.Planilla.Application.Features.Trabajador.Ports;
 using Papa.Planilla.Application.Features.Trabajador.UseCases;
 using Papa.Planilla.Application.Features.UnidadOrganica.Ports;
@@ -29,6 +31,9 @@ namespace Papa.Planilla.Application
             services.AddScoped<ICreateContratoUseCase, CreateContratoUseCase>();
             services.AddScoped<IListContratoUseCase, ListContratoUseCase>();
             services.AddScoped<ContratoUseCases>();
+            services.AddScoped<ICreatePlanillaUseCase, CreatePlanillaUseCase>();
+            services.AddScoped<IListPlanillaUseCase, ListPlanillaUseCase>();
+            services.AddScoped<PlanillaUseCases>();
             //
             return services;
         }

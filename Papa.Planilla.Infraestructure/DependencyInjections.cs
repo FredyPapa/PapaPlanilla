@@ -25,6 +25,7 @@ namespace Papa.Planilla.Infraestructure
             services.AddScoped<ICargoRepository, CargoRepository>();
             services.AddScoped<IUnidadOrganicaRepository, UnidadOrganicaRepository>();
             services.AddScoped<IContratoRepository, ContratoRepository>();
+            services.AddScoped<IPlanillaRepository, PlanillaRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
