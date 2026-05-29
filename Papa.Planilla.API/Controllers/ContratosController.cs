@@ -30,5 +30,12 @@ namespace Papa.Planilla.API.Controllers
             var result = await _useCases.list.ExecuteAsync(request);
             return HandlerResult(result);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var result = await _useCases.getById.ExecuteAsync(id);
+            return HandlerResult(result);
+        }
     }
 }

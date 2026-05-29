@@ -8,6 +8,7 @@ namespace Papa.Planilla.Application.Features.Contrato.UseCases
     public record ContratoUseCases
     (
         ICreateContratoUseCase create,
-        IListContratoUseCase list
+        IListContratoUseCase list,
+        IGetContratoByIdUseCase getById
     );
 }

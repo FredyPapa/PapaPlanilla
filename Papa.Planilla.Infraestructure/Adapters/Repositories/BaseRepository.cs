@@ -29,7 +29,10 @@ namespace Papa.Planilla.Infraestructure.Adapters.Repositories
         //Obtener por Id
         public async Task<TEntity?> GetByIdAsync(Guid id)
         {
-            return await _context.Set<TEntity>().FindAsync(id);
+            //return await _context.Set<TEntity>().FindAsync(id);
+            return await _context.Set<TEntity>()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == id);
         }
 
         //Listar varios registros

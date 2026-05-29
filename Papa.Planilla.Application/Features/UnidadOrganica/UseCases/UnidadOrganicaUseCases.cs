@@ -7,6 +7,7 @@ namespace Papa.Planilla.Application.Features.UnidadOrganica.UseCases
 {
     public record UnidadOrganicaUseCases(
         ICreateUnidadOrganicaUseCase create,
-        IListUnidadOrganicaUseCase list
+        IListUnidadOrganicaUseCase list,
+        IGetUnidadOrganicaByIdUseCase getById
     );
 }

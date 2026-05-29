@@ -21,18 +21,23 @@ namespace Papa.Planilla.Application
         {
             services.AddScoped<ICreateTrabajadorUseCase, CreateTrabajadorUseCase>();
             services.AddScoped<IListTrabajadorUseCase, ListTrabajadorUseCase>();
+            services.AddScoped<IGetTrabajadorByIdUseCase, GetTrabajadorByIdUseCase>();
             services.AddScoped<TrabajadorUseCases>();
             services.AddScoped<ICreateCargoUseCase, CreateCargoUseCase>();
             services.AddScoped<IListCargoUseCase, ListCargoUseCase>();
+            services.AddScoped<IGetCargoByIdUseCase, GetCargoByIdUseCase>();
             services.AddScoped<CargoUseCases>();
             services.AddScoped<ICreateUnidadOrganicaUseCase, CreateUnidadOrganicaUseCase>();
             services.AddScoped<IListUnidadOrganicaUseCase, ListUnidadOrganicaUseCase>();
+            services.AddScoped<IGetUnidadOrganicaByIdUseCase, GetUnidadOrganicaByIdUseCase>();
             services.AddScoped<UnidadOrganicaUseCases>();
             services.AddScoped<ICreateContratoUseCase, CreateContratoUseCase>();
             services.AddScoped<IListContratoUseCase, ListContratoUseCase>();
+            services.AddScoped<IGetContratoByIdUseCase, GetContratoByIdUseCase>();
             services.AddScoped<ContratoUseCases>();
             services.AddScoped<ICreatePlanillaUseCase, CreatePlanillaUseCase>();
             services.AddScoped<IListPlanillaUseCase, ListPlanillaUseCase>();
+            services.AddScoped<IGetPlanillaByIdUseCase, GetPlanillaByIdUseCase>();
             services.AddScoped<PlanillaUseCases>();
             //
             return services;

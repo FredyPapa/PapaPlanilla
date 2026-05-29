@@ -7,6 +7,7 @@ namespace Papa.Planilla.Application.Features.Cargo.UseCases
 {
     public record CargoUseCases(
         ICreateCargoUseCase create,
-        IListCargoUseCase list
+        IListCargoUseCase list,
+        IGetCargoByIdUseCase getById
     );
 }

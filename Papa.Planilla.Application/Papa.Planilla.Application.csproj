@@ -13,7 +13,6 @@
   <ItemGroup>
     <Folder Include="Common\Contants\" />
     <Folder Include="Common\Abstractions\" />
-    <Folder Include="Features\Contrato\DTO\" />
   </ItemGroup>
 
   <ItemGroup>
