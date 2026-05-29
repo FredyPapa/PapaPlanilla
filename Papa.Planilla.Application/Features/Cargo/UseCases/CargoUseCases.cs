@@ -8,6 +8,8 @@ namespace Papa.Planilla.Application.Features.Cargo.UseCases
     public record CargoUseCases(
         ICreateCargoUseCase create,
         IListCargoUseCase list,
-        IGetCargoByIdUseCase getById
+        IGetCargoByIdUseCase getById,
+        IUpdateCargoUseCase update,
+        IDeleteCargoUseCase delete
     );
 }

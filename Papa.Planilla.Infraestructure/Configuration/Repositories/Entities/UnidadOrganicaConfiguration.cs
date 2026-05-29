@@ -30,7 +30,7 @@ namespace Papa.Planilla.Infraestructure.Configuration.Repositories.Entities
                 .HasMaxLength(250)
                 .HasColumnName("codigo_presupuestal_descripcion");
 
-                //Para evitar duplicidad en tipo y número (no debería existir 2 DNI con el mismo número)
+                //Para evitar duplicidad en tipo y número (no debería existir 2 Códigos presupuestales con el mismo número)
                 cp.HasIndex(d => new { d.Codigo, d.Descripcion}).IsUnique();
             });
 

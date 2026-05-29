@@ -8,6 +8,8 @@ namespace Papa.Planilla.Application.Features.Planilla.UseCases
     public record PlanillaUseCases(
         ICreatePlanillaUseCase create,
         IListPlanillaUseCase list,
-        IGetPlanillaByIdUseCase getById
+        IGetPlanillaByIdUseCase getById,
+        IUpdatePlanillaUseCase update,
+        IDeletePlanillaUseCase delete
     );
 }

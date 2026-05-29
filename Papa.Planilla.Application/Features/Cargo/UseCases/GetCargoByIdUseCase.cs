@@ -19,7 +19,7 @@ namespace Papa.Planilla.Application.Features.Cargo.UseCases
         public async Task<Result<GetCargoByIdResponse>> ExecuteAsync(Guid id)
         {
             var cargo = await _repository.GetByIdAsync(id);
-            if (cargo == null)
+            if (cargo == null || !cargo.Estado)
             {
                 return Result<GetCargoByIdResponse>.Failure("El cargo no existe.");
             }

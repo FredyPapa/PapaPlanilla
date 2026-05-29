@@ -21,7 +21,7 @@ namespace Papa.Planilla.Domain.Entities
             UsuarioCreacion = 1;
         }
 
-        protected void Eliminar()
+        public void Eliminar()
         {
             Estado = false;
             FechaActualizacion = DateTime.UtcNow;

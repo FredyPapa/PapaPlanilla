@@ -20,7 +20,7 @@ namespace Papa.Planilla.Application.Features.Contrato.UseCases
         public async Task<Result<GetContratoByIdResponse>> ExecuteAsync(Guid id)
         {
             var contrato = await _repository.GetByIdAsync(id);
-            if (contrato == null)
+            if (contrato == null || !contrato.Estado)
             {
                 return Result<GetContratoByIdResponse>.Failure("El contrato no existe.");
             }

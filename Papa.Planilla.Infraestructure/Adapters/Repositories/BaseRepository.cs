@@ -66,5 +66,9 @@ namespace Papa.Planilla.Infraestructure.Adapters.Repositories
             return (result, totalRow);
         }
 
+        public void Update(TEntity entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
+        }
     }
 }

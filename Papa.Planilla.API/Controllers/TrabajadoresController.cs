@@ -38,5 +38,19 @@ namespace Papa.Planilla.API.Controllers
             var result = await _useCases.getById.ExecuteAsync(id);
             return HandlerResult(result);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] UpdateTrabajadorRequest request)
+        {
+            var result = await _useCases.update.ExecuteAsync(request);
+            return HandlerResult(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var result = await _useCases.delete.ExecuteAsync(id);
+            return HandlerResult(result);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Papa.Planilla.Application.Features.UnidadOrganica.UseCases
         public async Task<Result<GetUnidadOrganicaByIdResponse>> ExecuteAsync(Guid id)
         {
             var uo = await _repository.GetByIdAsync(id);
-            if (uo == null)
+            if (uo == null || !uo.Estado)
             {
                 return Result<GetUnidadOrganicaByIdResponse>.Failure("La unidad orgánica no existe.");
             }

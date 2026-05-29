@@ -22,13 +22,13 @@ namespace Papa.Planilla.Application.Features.Contrato.UseCases
         {
             var result = await _repository.ListAsync
                 (
-                    predicate: p =>
+                    predicate: p => p.Estado && (
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Trabajador.Nombres.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Trabajador.ApellidoPaterno.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Trabajador.ApellidoMaterno.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.UnidadOrganica.Descripcion.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Cargo.Descripcion.ToUpper().Contains(request.Filter.ToUpper())) ||
-                    (string.IsNullOrWhiteSpace(request.Filter) || p.FechaInicio.ToString().Contains(request.Filter)),
+                    (string.IsNullOrWhiteSpace(request.Filter) || p.FechaInicio.ToString().Contains(request.Filter))),
                     selector: p => new ListContratoResponse
                     {
                         Id = p.Id,

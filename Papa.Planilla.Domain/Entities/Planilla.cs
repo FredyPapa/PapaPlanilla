@@ -53,6 +53,32 @@ namespace Papa.Planilla.Domain.Entities
             return new Planilla(anio, mes, trabajador, contrato, sueldoBasico, totalIngresos, totalDescuentos);
         }
 
+        //Actualizar
+        public void Actualizar(int anio, Meses mes, Guid trabajadorId, Guid contratoId, Importe sueldoBasico, Importe totalIngresos, Importe totalDescuentos, PlanillaEstado estadoPlanilla)
+        {
+            if (anio <= 0)
+                throw new ArgumentException("El año debe ser un número positivo.", nameof(anio));
+            if (!Enum.IsDefined(typeof(Meses), mes))
+                throw new ArgumentException("El valor ingresado no es válido", nameof(mes));
+            if (sueldoBasico == null)
+                throw new ArgumentException("El sueldo básico no puede estar vacío.", nameof(sueldoBasico));
+            if (totalIngresos == null)
+                throw new ArgumentException("El total de ingresos no puede estar vacío.", nameof(totalIngresos));
+            if (totalDescuentos == null)
+                throw new ArgumentException("El total de descuentos no puede estar vacío.", nameof(totalDescuentos));
+
+            Anio = anio;
+            Mes = mes;
+            TrabajadorId = trabajadorId;
+            ContratoId = contratoId;
+            SueldoBasico = sueldoBasico;
+            TotalIngresos = totalIngresos;
+            TotalDescuentos = totalDescuentos;
+            EstadoPlanilla = estadoPlanilla;
+            FechaActualizacion = DateTime.UtcNow;
+            UsuarioActualizacion = 1;
+        }
+
         //Métodos de negocio
         public void Procesado()
         {

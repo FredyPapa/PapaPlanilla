@@ -22,13 +22,13 @@ namespace Papa.Planilla.Application.Features.Planilla.UseCases
         {
             var result = await _repository.ListAsync
                 (
-                    predicate: p =>
+                    predicate: p => p.Estado && (
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Anio.ToString().Contains(request.Filter)) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Mes.ToString().Contains(request.Filter)) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Trabajador.Nombres.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Trabajador.ApellidoPaterno.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Trabajador.ApellidoMaterno.ToUpper().Contains(request.Filter.ToUpper())) ||
-                    (string.IsNullOrWhiteSpace(request.Filter) || p.EstadoPlanilla.ToString().Contains(request.Filter)),
+                    (string.IsNullOrWhiteSpace(request.Filter) || p.EstadoPlanilla.ToString().Contains(request.Filter))),
                     selector: p => new ListPlanillaResponse
                     {
                         Id = p.Id,

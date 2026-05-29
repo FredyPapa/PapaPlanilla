@@ -47,5 +47,24 @@ namespace Papa.Planilla.Domain.Entities
         {
             return new Contrato(trabajador, unidadOrganica, cargo, fechaInicio, fechaFin, sueldo);
         }
+
+        //Actualizar
+        public void Actualizar(Guid trabajadorId, Guid unidadOrganicaId, Guid cargoId, DateTime fechaInicio, DateTime? fechaFin, Importe sueldo, ContratoEstado estadoContrato)
+        {
+            if (fechaInicio == default)
+                throw new ArgumentException("La fecha de inicio no puede estar vacía.", nameof(fechaInicio));
+            if (sueldo == null)
+                throw new ArgumentException("El sueldo no puede estar vacío.", nameof(sueldo));
+
+            TrabajadorId = trabajadorId;
+            UnidadOrganicaId = unidadOrganicaId;
+            CargoId = cargoId;
+            FechaInicio = fechaInicio;
+            FechaFin = fechaFin;
+            Sueldo = sueldo;
+            EstadoContrato = estadoContrato;
+            FechaActualizacion = DateTime.UtcNow;
+            UsuarioActualizacion = 1;
+        }
     }
 }

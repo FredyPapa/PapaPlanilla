@@ -54,5 +54,31 @@ namespace Papa.Planilla.Domain.Entities
         {
             return new Trabajador(documentoIdentidad, apellidoPaterno, apellidoMaterno, nombres, correo, numeroCelular);
         }
+
+        //Actualizar
+        public void Actualizar(DocumentoIdentidad documentoIdentidad, string apellidoPaterno, string apellidoMaterno, string nombres, string? correo, NumeroCelular numeroCelular)
+        {
+            if (documentoIdentidad == null)
+                throw new ArgumentException("El documento de identidad no puede estar vacío.", nameof(documentoIdentidad));
+            if (string.IsNullOrWhiteSpace(apellidoPaterno))
+                throw new ArgumentException("El apellido paterno no puede estar vacío.", nameof(apellidoPaterno));
+            if (string.IsNullOrWhiteSpace(apellidoMaterno))
+                throw new ArgumentException("El apellido materno no puede estar vacío.", nameof(apellidoMaterno));
+            if (string.IsNullOrWhiteSpace(nombres))
+                throw new ArgumentException("Los nombres no pueden estar vacíos.", nameof(nombres));
+            if (string.IsNullOrWhiteSpace(correo))
+                throw new ArgumentException("El correo no puede estar vacío.", nameof(correo));
+            if (numeroCelular == null)
+                throw new ArgumentException("El número de celular no puede estar vacío.", nameof(numeroCelular));
+
+            DocumentoIdentidad = documentoIdentidad;
+            ApellidoPaterno = apellidoPaterno;
+            ApellidoMaterno = apellidoMaterno;
+            Nombres = nombres;
+            Correo = correo;
+            NumeroCelular = numeroCelular;
+            FechaActualizacion = DateTime.UtcNow;
+            UsuarioActualizacion = 1;
+        }
     }
 }

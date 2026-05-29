@@ -20,7 +20,7 @@ namespace Papa.Planilla.Application.Features.Planilla.UseCases
         public async Task<Result<GetPlanillaByIdResponse>> ExecuteAsync(Guid id)
         {
             var planilla = await _repository.GetByIdAsync(id);
-            if (planilla == null)
+            if (planilla == null || !planilla.Estado)
             {
                 return Result<GetPlanillaByIdResponse>.Failure("La planilla no existe.");
             }

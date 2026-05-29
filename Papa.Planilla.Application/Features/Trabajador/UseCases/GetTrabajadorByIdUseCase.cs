@@ -20,7 +20,7 @@ namespace Papa.Planilla.Application.Features.Trabajador.UseCases
         public async Task<Result<GetTrabajadorByIdResponse>> ExecuteAsync(Guid id)
         {
             var trabajador = await _repository.GetByIdAsync(id);
-            if (trabajador == null)
+            if (trabajador == null || !trabajador.Estado)
             {
                 return Result<GetTrabajadorByIdResponse>.Failure("El trabajador no existe.");
             }

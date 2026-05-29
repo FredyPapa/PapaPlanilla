@@ -22,10 +22,10 @@ namespace Papa.Planilla.Application.Features.UnidadOrganica.UseCases
         {
             var result = await _repository.ListAsync
                 (
-                    predicate: p =>
+                    predicate: p => p.Estado && (
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Descripcion.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.CodigoPresupuestal.Descripcion.ToUpper().Contains(request.Filter.ToUpper())) ||
-                    (string.IsNullOrWhiteSpace(request.Filter) || p.CodigoPresupuestal.Codigo.Contains(request.Filter)),
+                    (string.IsNullOrWhiteSpace(request.Filter) || p.CodigoPresupuestal.Codigo.Contains(request.Filter))),
                     selector: p => new ListUnidadOrganicaResponse
                     {
                         Id = p.Id,

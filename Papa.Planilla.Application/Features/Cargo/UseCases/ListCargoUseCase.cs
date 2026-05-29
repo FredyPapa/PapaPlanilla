@@ -21,8 +21,8 @@ namespace Papa.Planilla.Application.Features.Cargo.UseCases
         {
             var result = await _repository.ListAsync
                 (
-                    predicate: p =>
-                    string.IsNullOrWhiteSpace(request.Filter) || p.Descripcion.ToUpper().Contains(request.Filter.ToUpper()),
+                    predicate: p => p.Estado && (
+                    string.IsNullOrWhiteSpace(request.Filter) || p.Descripcion.ToUpper().Contains(request.Filter.ToUpper())),
                     selector: p => new ListCargoResponse
                     {
                         Id = p.Id,

@@ -21,12 +21,12 @@ namespace Papa.Planilla.Application.Features.Trabajador.UseCases
         {
             var result = await _repository.ListAsync
                 (
-                    predicate: p => 
+                    predicate: p => p.Estado && (
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Nombres.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.ApellidoPaterno.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.ApellidoMaterno.ToUpper().Contains(request.Filter.ToUpper())) ||
                     (string.IsNullOrWhiteSpace(request.Filter) || p.Correo.ToUpper().Contains(request.Filter.ToUpper())) ||
-                    (string.IsNullOrWhiteSpace(request.Filter) || p.NumeroCelular.Numero.Contains(request.Filter)),
+                    (string.IsNullOrWhiteSpace(request.Filter) || p.NumeroCelular.Numero.Contains(request.Filter))),
                     selector: p => new ListTrabajadorResponse
                     {
                         Id = p.Id,

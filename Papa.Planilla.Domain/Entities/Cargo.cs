@@ -26,5 +26,15 @@ namespace Papa.Planilla.Domain.Entities
         {
             return new Cargo(descripcion);
         }
+
+        //Actualizar
+        public void Actualizar(string descripcion)
+        {
+            if (string.IsNullOrWhiteSpace(descripcion))
+                throw new ArgumentException("La descripción del cargo no puede estar vacía.", nameof(descripcion));
+            Descripcion = descripcion;
+            FechaActualizacion = DateTime.UtcNow;
+            UsuarioActualizacion = 1;
+        }
     }
 }

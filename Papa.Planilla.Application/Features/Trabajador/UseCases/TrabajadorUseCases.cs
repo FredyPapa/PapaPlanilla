@@ -8,6 +8,8 @@ namespace Papa.Planilla.Application.Features.Trabajador.UseCases
     public record TrabajadorUseCases(
         ICreateTrabajadorUseCase create,
         IListTrabajadorUseCase list,
-        IGetTrabajadorByIdUseCase getById
+        IGetTrabajadorByIdUseCase getById,
+        IUpdateTrabajadorUseCase update,
+        IDeleteTrabajadorUseCase delete
     );
 }

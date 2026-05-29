@@ -9,6 +9,8 @@ namespace Papa.Planilla.Application.Features.Contrato.UseCases
     (
         ICreateContratoUseCase create,
         IListContratoUseCase list,
-        IGetContratoByIdUseCase getById
+        IGetContratoByIdUseCase getById,
+        IUpdateContratoUseCase update,
+        IDeleteContratoUseCase delete
     );
 }
