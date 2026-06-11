@@ -12,5 +12,6 @@
   </Folder>
   <Folder Name="/src/Presentation/">
     <Project Path="Papa.Planilla.API/Papa.Planilla.API.csproj" />
+    <Project Path="Papa.Planilla.SOAP/Papa.Planilla.SOAP.csproj" Id="d33641c4-565c-4b56-8926-2c41b4e6dec2" />
   </Folder>
 </Solution>

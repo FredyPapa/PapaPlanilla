@@ -1,0 +1,6 @@
+@Papa.Planilla.SOAP_HostAddress = http://localhost:5007
+
+GET {{Papa.Planilla.SOAP_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
