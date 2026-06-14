@@ -11,7 +11,23 @@ services:
     ports:
       - "1502:5432"
     volumes:
-      - D:\Ejercicios\NET\volumenes:/var/lib/postgresql/data
+      - D:\Ejercicios\NET\volumenes\hexagonal_postgres:/var/lib/postgresql/data
+    networks:
+      - api-planilla-network
+
+
+  rabbitmq_hexagonal:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq_planilla
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: Password2026
+    ports:
+      - 15672:15672
+      - 5672:5672
+    volumes:
+      - D:\Ejercicios\NET\volumenes\hexagonal_rabbitmq:/var/lib/rabbitmq
     networks:
       - api-planilla-network
 

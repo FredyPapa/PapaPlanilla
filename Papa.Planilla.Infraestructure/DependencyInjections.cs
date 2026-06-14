@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Papa.Planilla.Domain.Ports.Messages;
 using Papa.Planilla.Domain.Ports.Repositories;
 using Papa.Planilla.Domain.Ports.Services;
 using Papa.Planilla.Infraestructure.Adapters.Repositories;
@@ -27,6 +28,7 @@ namespace Papa.Planilla.Infraestructure
             services.AddScoped<IContratoRepository, ContratoRepository>();
             services.AddScoped<IPlanillaRepository, PlanillaRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRabbitProducerService, IRabbitProducerService>();
 
             return services;
         }

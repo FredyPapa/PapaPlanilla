@@ -1,4 +1,5 @@
 ﻿using Papa.Planilla.Domain.Enums;
+using Papa.Planilla.Domain.Events;
 using Papa.Planilla.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,23 @@ namespace Papa.Planilla.Domain.Entities
             TotalIngresos = totalIngresos;
             TotalDescuentos = totalDescuentos;
             EstadoPlanilla = PlanillaEstado.Pendiente;
+
+            //Agregamos al evento de dominio (encolar)
+            AddDomainEvent(
+                new PlanillaCreatedDomainEvent(
+                    Id,
+                    TrabajadorId,
+                    ContratoId,
+                    Anio,
+                    (int)Mes,
+                    SueldoBasico.Moneda,
+                    SueldoBasico.Monto,
+                    TotalIngresos.Moneda,
+                    TotalIngresos.Monto,
+                    TotalDescuentos.Moneda,
+                    TotalDescuentos.Monto
+                )
+            );
         }
 
         //Patrón Factory
