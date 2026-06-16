@@ -1,5 +1,6 @@
 ﻿using Papa.Planilla.Domain.Enums;
 using Papa.Planilla.Domain.Events;
+using Papa.Planilla.Domain.Events.Domain;
 using Papa.Planilla.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;

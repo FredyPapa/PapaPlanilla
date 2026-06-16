@@ -39,5 +39,11 @@ namespace Papa.Planilla.Domain.Entities
         {
             _domainEvents.Add(domainEvent);
         }
+
+        //Limpiar eventos
+        public void RemoveDomainEvent()
+        {
+            _domainEvents.Clear();
+        }
     }
 }

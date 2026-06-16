@@ -4,8 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Papa.Planilla.Domain.Ports.Messages;
 using Papa.Planilla.Domain.Ports.Repositories;
 using Papa.Planilla.Domain.Ports.Services;
+using Papa.Planilla.Infraestructure.Adapters.Messages;
 using Papa.Planilla.Infraestructure.Adapters.Repositories;
 using Papa.Planilla.Infraestructure.Adapters.Services;
+using Papa.Planilla.Infraestructure.Configuration.Messages;
 using Papa.Planilla.Infraestructure.Configuration.Repositories.Context;
 using System;
 using System.Collections.Generic;
@@ -28,7 +30,14 @@ namespace Papa.Planilla.Infraestructure
             services.AddScoped<IContratoRepository, ContratoRepository>();
             services.AddScoped<IPlanillaRepository, PlanillaRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IRabbitProducerService, IRabbitProducerService>();
+            services.AddScoped<DomainEventDispatcher>();
+
+            // Configuración de RabbitMQ
+            var rabbitSettings = configuration.GetSection("RabbitSetting").Get<RabbitSettings>()
+                ?? throw new InvalidOperationException("RabbitSetting configuration section is missing.");
+            services.AddSingleton(rabbitSettings);
+            services.AddSingleton<RabbitConfiguration>();
+            services.AddScoped<IRabbitProducerService, RabbitProducerService>();
 
             return services;
         }

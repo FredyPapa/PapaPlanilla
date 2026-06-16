@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Papa.Planilla.Domain.Events
+namespace Papa.Planilla.Domain.Events.Domain
 {
     public class PlanillaCreatedDomainEvent : IDomainEvent
     {

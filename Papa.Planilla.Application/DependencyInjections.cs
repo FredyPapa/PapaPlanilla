@@ -3,12 +3,15 @@ using Papa.Planilla.Application.Features.Cargo.Ports;
 using Papa.Planilla.Application.Features.Cargo.UseCases;
 using Papa.Planilla.Application.Features.Contrato.Ports;
 using Papa.Planilla.Application.Features.Contrato.UseCases;
+using Papa.Planilla.Application.Features.Planilla.EventHandlers;
 using Papa.Planilla.Application.Features.Planilla.Ports;
 using Papa.Planilla.Application.Features.Planilla.UseCases;
 using Papa.Planilla.Application.Features.Trabajador.Ports;
 using Papa.Planilla.Application.Features.Trabajador.UseCases;
 using Papa.Planilla.Application.Features.UnidadOrganica.Ports;
 using Papa.Planilla.Application.Features.UnidadOrganica.UseCases;
+using Papa.Planilla.Domain.Events.Domain;
+using Papa.Planilla.Domain.Ports.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -49,6 +52,8 @@ namespace Papa.Planilla.Application
             services.AddScoped<IUpdatePlanillaUseCase, UpdatePlanillaUseCase>();
             services.AddScoped<IDeletePlanillaUseCase, DeletePlanillaUseCase>();
             services.AddScoped<PlanillaUseCases>();
+            //
+            services.AddScoped<IDomainEventHandler<PlanillaCreatedDomainEvent>, PlanillaCreatedDomainEventHandler>();
             //
             return services;
         }

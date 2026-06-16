@@ -25,7 +25,10 @@ namespace Papa.Planilla.Infraestructure.Adapters.Messages
 
             var exchangeName = $"{request.QueueName}.exchange";
 
-            await channel.ExchangeDeclareAsync(exchangeName, ExchangeType.Direct, true);
+            await channel.ExchangeDeclareAsync(
+                exchange: exchangeName,
+                type: ExchangeType.Direct,
+                durable: true);
 
             var json = JsonSerializer.Serialize(request.Body);
             var body = Encoding.UTF8.GetBytes(json);
