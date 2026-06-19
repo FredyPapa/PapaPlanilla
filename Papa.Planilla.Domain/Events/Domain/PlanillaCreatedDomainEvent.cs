@@ -22,7 +22,7 @@ namespace Papa.Planilla.Domain.Events.Domain
         public Guid Id => Guid.NewGuid();
         public DateTime OcurredOn => DateTime.UtcNow;
 
-        public PlanillaCreatedDomainEvent(Guid planillaId, Guid trabajadorId, Guid contratoId, int anio, int mes, string sueldoBasicoMoneda, decimal sSueldoBasicoMonto, string totalIngresosMoneda, decimal totalIngresosMonto, string totalDescuentosMoneda, decimal totalDescuentosMonto)
+        public PlanillaCreatedDomainEvent(Guid planillaId, Guid trabajadorId, Guid contratoId, int anio, int mes, string sueldoBasicoMoneda, decimal sueldoBasicoMonto, string totalIngresosMoneda, decimal totalIngresosMonto, string totalDescuentosMoneda, decimal totalDescuentosMonto)
         {
             PlanillaId = planillaId;
             TrabajadorId = trabajadorId;
@@ -30,9 +30,9 @@ namespace Papa.Planilla.Domain.Events.Domain
             Anio = anio;
             Mes = mes;
             SueldoBasicoMoneda = sueldoBasicoMoneda;
-            SueldoBasicoMonto = SueldoBasicoMonto;
+            SueldoBasicoMonto = sueldoBasicoMonto;
             TotalIngresosMoneda = totalIngresosMoneda;
-            TotalIngresosMonto = totalDescuentosMonto;
+            TotalIngresosMonto = totalIngresosMonto;
             TotalDescuentosMoneda = totalDescuentosMoneda;
             TotalDescuentosMonto = totalDescuentosMonto;
         }

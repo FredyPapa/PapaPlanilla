@@ -38,6 +38,7 @@ namespace Papa.Planilla.Infraestructure
             services.AddSingleton(rabbitSettings);
             services.AddSingleton<RabbitConfiguration>();
             services.AddScoped<IRabbitProducerService, RabbitProducerService>();
+            services.AddScoped<IRabbitConsumerService, RabbitConsumerService>();
 
             return services;
         }

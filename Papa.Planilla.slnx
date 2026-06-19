@@ -13,5 +13,6 @@
   <Folder Name="/src/Presentation/">
     <Project Path="Papa.Planilla.API/Papa.Planilla.API.csproj" />
     <Project Path="Papa.Planilla.SOAP/Papa.Planilla.SOAP.csproj" Id="d33641c4-565c-4b56-8926-2c41b4e6dec2" />
+    <Project Path="Papa.PlanillaWorker/Papa.PlanillaWorker.csproj" Id="ddecabe6-ea85-4434-b3c7-6f7d1f4c20e9" />
   </Folder>
 </Solution>

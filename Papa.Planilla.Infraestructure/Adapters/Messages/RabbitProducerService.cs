@@ -30,6 +30,21 @@ namespace Papa.Planilla.Infraestructure.Adapters.Messages
                 type: ExchangeType.Direct,
                 durable: true);
 
+            var queueName = request.QueueName;
+
+            await channel.QueueDeclareAsync(
+                queue: queueName,
+                durable: true,
+                exclusive: false,
+                autoDelete: false
+            );
+
+            await channel.QueueBindAsync(
+                queue: queueName,
+                exchange: exchangeName,
+                routingKey: queueName
+            );
+
             var json = JsonSerializer.Serialize(request.Body);
             var body = Encoding.UTF8.GetBytes(json);
 
